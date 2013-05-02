@@ -1,0 +1,10 @@
+<%= simple_form_for(@hypothesis) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :goal %>
+  <%= f.input :starts_at, as: :date %>
+  <%= f.input :ends_at, as: :date %>
+  <div class="form-actions">
+    <%= f.submit %>
+  </div>
+<% end %>

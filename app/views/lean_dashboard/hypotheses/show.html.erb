@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @hypothesis.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @hypothesis.description %>
+</p>
+
+<p>
+  <b>Goal:</b>
+  <%= @hypothesis.goal %>
+</p>
+
+<p>
+  <b>Starts at:</b>
+  <%= @hypothesis.starts_at %>
+</p>
+
+<p>
+  <b>Ends at:</b>
+  <%= @hypothesis.ends_at %>
+</p>
+
+<p>
+  <b>Cohort:</b>
+  <%= @hypothesis.cohort %>
+</p>
+
+<p>
+  <b>Indicator:</b>
+  <%= @hypothesis.indicator %>
+</p>
+
+
+<%= link_to 'Edit', edit_hypothesis_path(@hypothesis) %> |
+<%= link_to 'Back', hypotheses_path %>

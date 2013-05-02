@@ -1,0 +1,27 @@
+<div class="slab span6">
+  <div class="clearfix">
+    <h2 class="pull-left"><strong><%= hypothesis.title %></strong></h2>
+    <small class="muted pull-right">
+      <% if Time.now < hypothesis.ends_at %>
+        <%= distance_of_time_in_words_to_now(hypothesis.ends_at) %> left
+      <% else %>
+        Done (<%= hypothesis.ends_at.to_date %>)
+      <% end %>
+     </small>
+  </div>
+  <p><%= hypothesis.description %></p>
+  <table class='table metrics'>
+    <tr>
+      <th width='30%'>Cohort</th>
+      <th width='50%'>Indicator</th>
+      <th class="result-header" width='10%'>Result</th>
+      <th class="result-header" width='10%'>Goal</th>
+    </tr>
+    <tr>
+      <td><span class="label label-info" title="Total: <%= hypothesis.cohort.value %>" data-content="<%= hypothesis.cohort.results.join('<br/>') %>"><%= hypothesis.cohort.description %> (<%= hypothesis.cohort.value %>)</span></td>
+      <td><span class="label label-success" title="Total: <%= hypothesis.indicator.value %>" data-content="<%= hypothesis.indicator.results.join('<br/>') %>"><%= hypothesis.indicator.description %></span></td>
+      <td class="result"><%= hypothesis.indicator.value %></td>
+      <td class="result"><%= hypothesis.goal %></td>
+    </tr>
+  </table>
+</div>
