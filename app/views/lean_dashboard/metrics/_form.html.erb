@@ -1,25 +1,19 @@
-<%= form_for(@metric) do |f| %>
-  <% if @metric.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@metric.errors.count, "error") %> prohibited this metric from being saved:</h2>
-
-      <ul>
-      <% @metric.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for(@metric) do |f| %>
+  <%= f.input :description, input_html: { class: 'input-block-level' } %>
+  <%= f.input :code, as: :hidden %>
+  <div class="row-fluid">
+    <div class="span7">
+      <div class='editor' id="editor"><%= @metric.code %></div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <div class="span5">
+      <textarea class="input-block-level" rows='5' readonly>
+=> <%= @metric.value %>
+=> <%= @metric.debug %>
+      </textarea>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_area :code %>
-  </div>
-  <div class="actions">
+  <div class="form-actions">
+    <%= link_to 'Back', hypotheses_path %>
     <%= f.submit %>
   </div>
 <% end %>

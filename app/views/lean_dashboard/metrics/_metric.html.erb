@@ -1,0 +1,3 @@
+<%= link_to [:edit, metric], class: 'metric', title: "Total: #{metric.value}", data: { content: metric.results ? metric.results.join('<br/>') : metric.debug } do %>
+  <%= metric.description %> (<%= metric.value %>)
+<% end %>

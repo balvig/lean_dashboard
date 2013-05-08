@@ -18,8 +18,8 @@
       <th class="result-header" width='10%'>Goal</th>
     </tr>
     <tr>
-      <td><span class="label label-info" title="Total: <%= hypothesis.cohort.value %>" data-content="<%= hypothesis.cohort.results.join('<br/>') %>"><%= hypothesis.cohort.description %> (<%= hypothesis.cohort.value %>)</span></td>
-      <td><span class="label label-success" title="Total: <%= hypothesis.indicator.value %>" data-content="<%= hypothesis.indicator.results.join('<br/>') %>"><%= hypothesis.indicator.description %></span></td>
+      <td class="cohort"><%= render hypothesis.cohort %></td>
+      <td class="indicator"><%= render hypothesis.indicator %></td>
       <td class="result"><%= hypothesis.indicator.value %></td>
       <td class="result"><%= hypothesis.goal %></td>
     </tr>

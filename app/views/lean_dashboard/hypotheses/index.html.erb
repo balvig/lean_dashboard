@@ -1,3 +1,4 @@
+<p><%= link_to "New Hypothesis", new_hypothesis_path, class: 'btn' %></p>
 <% @hypotheses.in_groups_of(2, false).each do |hypotheses| %>
   <div class="row-fluid">
     <%= render hypotheses %>

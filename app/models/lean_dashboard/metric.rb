@@ -1,5 +1,8 @@
 module LeanDashboard
   class Metric < ActiveRecord::Base
+    belongs_to :hypothesis
+    validates :description, presence: true
+
     def results
       if data.respond_to?(:map)
         data.map do |record|
@@ -11,13 +14,15 @@ module LeanDashboard
             record.inspect
           end
         end
-      else
-        data.inspect
       end
     end
 
+    def debug
+      (results || data).to_s
+    end
+
     def value
-      results.size
+      results ? results.size : '-'
     end
 
     def data
@@ -28,11 +33,6 @@ module LeanDashboard
       end
     end
 
-    private
-
-    def hypothesis
-      Hypothesis.new
-    end
   end
 
 end

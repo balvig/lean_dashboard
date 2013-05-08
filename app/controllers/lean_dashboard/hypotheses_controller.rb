@@ -4,7 +4,7 @@ module LeanDashboard
   class HypothesesController < ApplicationController
 
     def index
-      @hypotheses = Hypothesis.all
+      @hypotheses = Hypothesis.order('id DESC')
 
       respond_to do |format|
         format.html # index.html.erb
@@ -27,6 +27,7 @@ module LeanDashboard
     # GET /hypotheses/new.json
     def new
       @hypothesis = Hypothesis.new
+      2.times { @hypothesis.metrics.build }
 
       respond_to do |format|
         format.html # new.html.erb
@@ -46,7 +47,7 @@ module LeanDashboard
 
       respond_to do |format|
         if @hypothesis.save
-          format.html { redirect_to @hypothesis, notice: 'Hypothesis was successfully created.' }
+          format.html { redirect_to hypotheses_path, notice: 'Hypothesis was successfully created.' }
           format.json { render json: @hypothesis, status: :created, location: @hypothesis }
         else
           format.html { render action: "new" }
