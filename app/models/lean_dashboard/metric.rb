@@ -1,18 +1,14 @@
 module LeanDashboard
   class Metric < ActiveRecord::Base
+    LABEL_METHODS = %w[to_label display_name full_name name title username login value inspect]
     belongs_to :hypothesis
     validates :description, presence: true
 
     def results
       if data.respond_to?(:map)
         data.map do |record|
-          if record.respond_to?(:name)
-            record.send(:name)
-          elsif record.respond_to?(:user)
-            record.user.send(:name)
-          else
-            record.inspect
-          end
+          label_method = LABEL_METHODS.find { |m| record.respond_to?(m) }
+          record.send(label_method)
         end
       end
     end
