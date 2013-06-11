@@ -7,6 +7,7 @@ module LeanDashboard
     def results
       if data.respond_to?(:map)
         data.map do |record|
+          record = record.user if record.respond_to?(:user)
           label_method = LABEL_METHODS.find { |m| record.respond_to?(m) }
           record.send(label_method)
         end
