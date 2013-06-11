@@ -1,5 +1,5 @@
 <%= simple_form_for(@metric) do |f| %>
-  <%= f.input :description, input_html: { class: 'input-block-level' } %>
+  <%= f.input :description, placeholder: 'Description', label: false, input_html: { class: 'input-block-level' } %>
   <%= f.input :code, as: :hidden %>
   <div class="row-fluid">
     <div class="span7">
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="form-actions">
-    <%= link_to 'Back', hypotheses_path %>
     <%= f.submit %>
+    <%= link_to 'Back', hypotheses_path %>
   </div>
 <% end %>

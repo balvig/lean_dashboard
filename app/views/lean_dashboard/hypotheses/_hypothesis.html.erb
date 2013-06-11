@@ -1,6 +1,6 @@
-<div class="slab span6">
+<%= div_for(hypothesis, class: 'span6') do %>
   <div class="clearfix">
-    <h2 class="pull-left"><strong><%= hypothesis.title %></strong></h2>
+    <h2 class="pull-left"><%= link_to hypothesis.title, [:edit, hypothesis] %></h2>
     <small class="muted pull-right">
       <% if Time.now < hypothesis.ends_at %>
         <%= distance_of_time_in_words_to_now(hypothesis.ends_at) %> left
@@ -24,4 +24,4 @@
       <td class="result"><%= hypothesis.goal %></td>
     </tr>
   </table>
-</div>
+<% end %>

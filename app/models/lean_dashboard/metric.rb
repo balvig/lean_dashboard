@@ -22,11 +22,9 @@ module LeanDashboard
     end
 
     def data
-      begin
-        hypothesis.instance_eval(code)
+      @data ||= hypothesis.instance_eval(code).to_a
       rescue => e
         e
-      end
     end
 
   end

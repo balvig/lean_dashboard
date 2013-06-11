@@ -63,7 +63,7 @@ module LeanDashboard
 
       respond_to do |format|
         if @hypothesis.update_attributes(hypothesis_params)
-          format.html { redirect_to @hypothesis, notice: 'Hypothesis was successfully updated.' }
+          format.html { redirect_to hypotheses_path, notice: 'Hypothesis was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
