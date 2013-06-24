@@ -1,5 +1,6 @@
 <%= simple_form_for(@metric) do |f| %>
   <%= f.input :description, placeholder: 'Description', label: false, input_html: { class: 'input-block-level' } %>
+  <%= f.input :label_method, placeholder: 'Label method', label: false, input_html: { class: 'input-block-level', autocomplete: 'off', data: { provide: 'typeahead', source: LeanDashboard::Metric.pluck(:label_method) } } %>
   <%= f.input :code, as: :hidden %>
   <div class="row-fluid">
     <div class="span7">
